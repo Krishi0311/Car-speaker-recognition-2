@@ -26,7 +26,7 @@ def extract_mfcc(audio, num_mfcc=25, n_fft=2048, hop_length=512,target_length = 
     mfccs = librosa.util.normalize(mfccs)
     return mfccs
 
-model_path = 'Models/WakeUpWordModel.keras'
+model_path = 'Models/DataGenWakeUp.keras'
 
 # Load the model with custom objects
 model = tf.keras.models.load_model(model_path)
@@ -59,7 +59,7 @@ preprocessed_audio = preprocess_test_voice_wake_up(recorded_audio)
 
 play_audio(recorded_audio)
 
-
+print(preprocessed_audio.shape)
 
 
 prediction = model.predict(preprocessed_audio)
